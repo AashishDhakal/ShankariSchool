@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shankari School - Learn to live</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Sunshine - Responsive vCard Template" />
+    <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Sunshine, portfolio" />
+    <meta name="author" content="lmtheme" />
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}">
+
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/transition-animations.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
+    <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" href="{% static "css/main.css" %}" type="text/css">
+    <script src="{% static "js/jquery-2.1.3.min.js" %}"></script>
+    <script src="{% static "js/modernizr.custom.js" %}"></script>
+    <style>
+      #preloader{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 1;
+        overflow: visible;
+        background: white url("{% static "images/shankari.gif" %}") no-repeat center center;
+        animation: 2s linear infinite;
+      }
+    </style>
+
+  </head>
+
+  <body onload="myFunction()">
+    <!-- Loading animation -->
+    <div id ="preloader">
+      </div>
+    <!-- /Loading animation -->
+
+    <div id="page" class="page">
+      <!-- Header -->
+      <header id="site_header" class="header mobile-menu-hide">
+        <div class="my-photo" >
+          <img  class="animated slideInUp" src="{% static "images/Shankari Logo.png" %}" alt="image">
+        </div>
+
+       <!-- <div class="site-title-block">
+          <h1 class="site-title">Shankari School</h1>
+          <p class="site-description">Learn to live</p>
+        </div> -->
+
+        <!-- Navigation & Social buttons -->
+        <div class="site-nav">
+          <!-- Main menu -->
+          <ul id="nav" class="site-main-menu">
+            <!-- About Me Subpage link -->
+            <li>
+              <a class="pt-trigger" href="#home" data-animation="58" data-goto="1">Home</a><!-- href value = data-id without # of .pt-page. Data-goto is the number of section -->
+            </li>
+            <!-- /About Me Subpage link -->
+            <!-- About Me Subpage link -->
+            <li>
+              <a class="pt-trigger" href="#about" data-animation="59" data-goto="2">About</a>
+            </li>
+            <!-- /About Me Subpage link -->
+            <li>
+              <a class="pt-trigger" href="#downloads" data-animation="60" data-goto="3">Downloads</a>
+            </li>
+            <li>
+              <a class="pt-trigger" href="#gallery" data-animation="61" data-goto="4">Gallery</a>
+            </li>
+            <li>
+              <a class="pt-trigger" href="#notices" data-animation="58" data-goto="5">Notices</a>
+            </li>
+            <li>
+              <a class="pt-trigger" href="#contact" data-animation="59" data-goto="6">Contact</a>
+            </li>
+          </ul>
+          <!-- /Main menu -->
+
+          <!-- Social buttons -->
+          <ul class="social-links">
+            <li><a class="tip social-button" href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li> <!-- Full list of social icons: http://fontawesome.io/icons/#brand -->
+            <li><a class="tip social-button" href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="tip social-button" href="#" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+            <!--<li><a class="tip social-button" href="#" title="Youtube"><i class="fa fa-youtube"></i></a></li>-->
+            <!--<li><a class="tip social-button" href="#" title="last.fm"><i class="fa fa-lastfm"></i></a></li>-->
+            <!--<li><a class="tip social-button" href="#" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>-->
+          </ul>
+          <!-- /Social buttons -->
+        </div>
+        <!-- Navigation & Social buttons -->
+      </header>
+      <!-- /Header -->
+
+      <!-- Mobile Header -->
+      <div class="mobile-header mobile-visible">
+        <div class="mobile-logo-container">
+          <div class="mobile-site-title">Shankari School</div>
+        </div>
+
+        <a class="menu-toggle mobile-visible">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+<div id="main" class="site-main">
+<div class="page-wrapper">
+<a class="blog-back-button" href="{% url 'home' %}"><i class="fa fa-angle-left"></i></a>
+<div class="blog-post-main-image">
+<img class="post-image img-responsive" src="{{ object.notice_image.url }}" alt="blog-post-1" />
+</div>
+<div class="blog-post-content">
+<h1>{{ object.notice_headline }}</h1>
+<!--<ul class="tags">
+<li><a>HTML5</a></li>
+<li><a>CSS3</a></li>
+<li><a>jQuery</a></li>
+<li><a>Ajax</a></li>
+<li><a>PHP5</a></li>
+</ul>-->
+<p>{{ object.notice|safe }}</p>
+<div class="post-info">
+<span class="autor"><i class="fa fa-fw fa-user"></i>{{ object.posted_by }}</span>
+<span class="divider">|</span>
+<span class="date"><i class="fa fa-fw fa-clock-o"></i>{{ object.published_date }}</span>
+
+<div class="btn-group share-buttons pull-right hidden-xs">
+<a href="#" target="_blank" class="btn"><i class="fa fa-facebook"></i> </a>
+<a href="#" target="_blank" class="btn"><i class="fa fa-twitter"></i> </a>
+<a href="#" target="_blank" class="btn"><i class="fa fa-dribbble"></i> </a>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<script>
+      var myVar;
+
+      function myFunction() {
+        myVar = setTimeout(showPage, 3000);
+      }
+
+      function showPage() {
+        document.getElementById("preloader").style.display = "none";
+        document.getElementById("page").style.display = "block";
+      }
+      </script>
+   <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/page-transition.js" %}"></script>
+    <script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
+    <script src="{% static "js/validator.js" %}"></script>
+    <script src="{% static "js/jquery.shuffle.min.js" %}"></script>
+    <script src="{% static "js/masonry.pkgd.min.js" %}"></script>
+    <script src="{% static "js/owl.carousel.min.js" %}"></script>
+    <script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+    <script src="{% static "js/jquery.hoverdir.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+</body>
+
+</html>
