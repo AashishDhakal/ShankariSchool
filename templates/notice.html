@@ -44,8 +44,10 @@
     <div id="page" class="page">
       <!-- Header -->
       <header id="site_header" class="header mobile-menu-hide">
-        <div class="my-photo" >
+        <div class="my-photo" style="padding-top:50px; " >
+            <a href="{% url "home" %}">
           <img  class="animated slideInUp" src="{% static "images/Shankari Logo.png" %}" alt="image">
+                </a>
         </div>
 
        <!-- <div class="site-title-block">
@@ -109,37 +111,18 @@
       </div>
 <div id="main" class="site-main">
 <div class="page-wrapper">
-<a class="blog-back-button" href="{% url 'home' %}"><i class="fa fa-angle-left"></i></a>
-<div class="blog-post-main-image">
-<img class="post-image img-responsive" src="{{ object.notice_image.url }}" alt="blog-post-1" />
-</div>
-<div class="blog-post-content">
-<h1>{{ object.notice_headline }}</h1>
-<!--<ul class="tags">
-<li><a>HTML5</a></li>
-<li><a>CSS3</a></li>
-<li><a>jQuery</a></li>
-<li><a>Ajax</a></li>
-<li><a>PHP5</a></li>
-</ul>-->
+    <div class="blog-post-content" style="padding-top:80px; ">
+        <div class="section-title-block" style="padding-top: 20px;">
+                <h2 class="section-title">{{ object.notice_headline }}</h2>
+              </div>
+                    <img class="img-fluid" style="width: 50%;" src="{{ object.notice_image.url }}" alt="blog-post-1" />
 <p>{{ object.notice|safe }}</p>
-<div class="post-info">
-<span class="autor"><i class="fa fa-fw fa-user"></i>{{ object.posted_by }}</span>
-<span class="divider">|</span>
-<span class="date"><i class="fa fa-fw fa-clock-o"></i>{{ object.published_date }}</span>
-
-<div class="btn-group share-buttons pull-right hidden-xs">
-<a href="#" target="_blank" class="btn"><i class="fa fa-facebook"></i> </a>
-<a href="#" target="_blank" class="btn"><i class="fa fa-twitter"></i> </a>
-<a href="#" target="_blank" class="btn"><i class="fa fa-dribbble"></i> </a>
-</div>
 
 </div>
 
 </div>
 </div>
-</div>
-</div>
+
 
 <script>
       var myVar;
@@ -166,3 +149,4 @@
 </body>
 
 </html>
+

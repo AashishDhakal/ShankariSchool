@@ -27,7 +27,7 @@ SECRET_KEY = 'w-w83b-n*&ipql72qrxpd*gbsu1uo(bulc0d3o7tb8$g55-b@-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.159','127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'ckeditor_uploader',
     'school',
 ]
 
@@ -126,3 +127,7 @@ STATICFILES_DIRS=[
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 MEDIA_URL = '/media/'
+
+CKEDITOR_UPLOAD_PATH = "ckupload/"
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+

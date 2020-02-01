@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import Homepage,NoticeDetailView
+from .views import Homepage,NoticeDetailView,AboutDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Homepage,name="home"),
-    path('<slug>/',NoticeDetailView.as_view(),name="noticedetail")
+    path('<slug>/',NoticeDetailView.as_view(),name="noticedetail"),
+    path('about/<slug>/',AboutDetailView.as_view(),name="aboutdetail"),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
