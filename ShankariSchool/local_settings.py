@@ -5,9 +5,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w-w83b-n*&ipql72qrxpd*gbsu1uo(bulc0d3o7tb8$g55-b@-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.1.159','127.0.0.1']
+ALLOWED_HOSTS = ['shankari.edu.np','www.shankari.edu.np']
 
 DATABASES = {
     'default': {

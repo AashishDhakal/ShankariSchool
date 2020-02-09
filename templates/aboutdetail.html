@@ -21,25 +21,10 @@
     <link rel="stylesheet" href="{% static "css/main.css" %}" type="text/css">
     <script src="{% static "js/jquery-2.1.3.min.js" %}"></script>
     <script src="{% static "js/modernizr.custom.js" %}"></script>
-    <style>
-      #preloader{
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        z-index: 1;
-        overflow: visible;
-        background: white url("{% static "images/shankari.gif" %}") no-repeat center center;
-        animation: 2s linear infinite;
-      }
-    </style>
 
   </head>
 
   <body onload="myFunction()">
-    <!-- Loading animation -->
-    <div id ="preloader">
-      </div>
-    <!-- /Loading animation -->
 
     <div id="page" class="page">
       <!-- Header -->
@@ -122,19 +107,6 @@
 </div>
 </div>
 
-
-<script>
-      var myVar;
-
-      function myFunction() {
-        myVar = setTimeout(showPage, 3000);
-      }
-
-      function showPage() {
-        document.getElementById("preloader").style.display = "none";
-        document.getElementById("page").style.display = "block";
-      }
-      </script>
    <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/page-transition.js" %}"></script>
     <script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
