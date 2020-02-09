@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,ListView,DetailView
 from school.models import Notices,CEOMessage,Testimonials,AboutSection,ImportantNotice,Downloads,Gallery
+import random
 
 def Homepage(request):
     notices = Notices.objects.all()
@@ -10,7 +11,8 @@ def Homepage(request):
     importantnotice = ImportantNotice.objects.first()
     downloads = Downloads.objects.all()
     images = Gallery.objects.all()
-    return render(request,"index.html",{'notices':notices,'message':messageofceo,'testimonials':testimonials,'aboutsections':aboutsections,'importantnotice':importantnotice,'downloads':downloads,'images':images})
+    random_number = random.random()
+    return render(request,"index.html",{'notices':notices,'message':messageofceo,'testimonials':testimonials,'aboutsections':aboutsections,'importantnotice':importantnotice,'downloads':downloads,'images':images,'random_num':random_number})
 
 class NoticeDetailView(DetailView):
     template_name = 'notice.html'

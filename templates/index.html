@@ -27,8 +27,8 @@
         height: 100vh;
         z-index: 1;
         overflow: visible;
-        background: white url("{% static "images/shankari.gif" %}") no-repeat center center;
-        animation: 2s linear infinite;
+        background: white url("{% static "images/shankari.gif" %}? + {{ random_num }}" ) no-repeat center center;
+        animation: 2s linear alternate infinite;
       }
     </style>
     
@@ -589,7 +589,7 @@
                   <div class="block-title">
                     <h3>Get in Touch</h3>
                   </div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo laborum veniam soluta praesentium corporis dicta ad natus ab corrupti ex repellendus, temporibus voluptate iusto pariatur cum libero ipsum labore eos?</p>
+                  <iframe width="425" height="500" src="https://maps.google.com/maps?q=Shankari%20School&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                   <div class="contact-info-block">
                     <div class="ci-icon">
                       <i class="pe-7s-icon pe-7s-map-marker"></i>
@@ -622,6 +622,7 @@
                       <h5>Mon - Fri: 9:00 - 18:00 Closed on Weekends</h5>
                     </div>
                   </div>
+
                 </div>
 
                 <div class="col-sm-6 col-md-6 subpage-block">
@@ -659,6 +660,7 @@
                   </form>
                 </div>
               </div>
+
             </section>
             <!-- End Contact Subpage -->
 
@@ -671,12 +673,12 @@
 
     <script>
       var myVar;
-      
-      function myFunction() {
+
+      function  myFunction() {
         myVar = setTimeout(showPage, 7400);
         myVar = setTimeout(showModal,7400);
       }
-      
+
       function showPage() {
         document.getElementById("preloader").style.display = "none";
         document.getElementById("page").style.display = "block";
@@ -686,6 +688,7 @@
             showClose: false
         })}
       </script>
+    
    <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/page-transition.js" %}"></script>
     <script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
