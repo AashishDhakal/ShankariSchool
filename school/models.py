@@ -7,7 +7,7 @@ class Notices(models.Model):
     notice_headline = models.CharField(max_length=250)
     slug = models.SlugField(blank=True)
     published_date = models.DateTimeField(auto_now_add=True)
-    notice_image = models.ImageField(upload_to="notices")
+    notice_image = models.ImageField(upload_to="notices",blank=True)
     notice = RichTextUploadingField()
 
     class Meta:
@@ -85,3 +85,22 @@ class Gallery(models.Model):
     def __str__(self):
         return self.title
 
+class HomePage(models.Model):
+    preloader = models.ImageField(upload_to="preloader",blank=True)
+    background_image = models.ImageField(upload_to="background",blank=True)
+    logo = models.ImageField(upload_to="logo",blank=True)
+
+    class Meta:
+        verbose_name = "Homepage"
+        verbose_name_plural = "Homepage"
+
+    def __str__(self):
+        return "Homepage Settings"
+
+class TeamMember(models.Model):
+    photo = models.ImageField(upload_to="teamphoto",blank=True)
+    name = models.CharField(max_length=100)
+    designation = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
