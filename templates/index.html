@@ -395,17 +395,6 @@
                 <!-- End of Portfolio filter -->
 
                 <!-- Portfolio Grid -->
-                <div id="portfolio_grid" class="portfolio-grid portfolio-masonry masonry-grid-3">
-                    {% for image in images %}
-                  <figure class="item" data-groups='["all", "media"]'>
-                      <img src="{{ image.image.url }}" alt="">
-                      <div>
-                        <h5 class="name">{{ image.title }}</h5>
-                       <!-- <small>Media</small>-->
-                        <i class="fa fa-file-text-o"></i>
-                      </div>
-                  </figure>
-                    {% endfor %}
 
                   <!-- <figure class="item" data-groups='["all", "video"]'>
                     <a href="https://player.vimeo.com/video/97102654?autoplay=1" title="Praesent Dolor Ex" class="lightbox mfp-iframe">
@@ -661,23 +650,29 @@
       <!-- /Main Content -->
     </div>
 
-    <script>
-      var myVar;
+        <script type="text/javascript">
+    $(document).ready(function() {
+    $(window).load(function() {
+        function Preloader() {
+            var preloader = $('#preloader');
+            preloader.delay (6500) .slideUp(500);
+        }
+        if ( ! sessionStorage.getItem( 'doNotShow' ) ) {
+            sessionStorage.setItem( 'doNotShow', true );
+            Preloader();
+            setTimeout(function () {
+                $("#ex1").modal({
+                showClose: false
+        })
+            },6800);
+        } else {
+           $ ('#preloader').hide();
+           $('#ex1').hide();
+        }
+    });
 
-      function  myFunction() {
-        myVar = setTimeout(showPage, 7400);
-        myVar = setTimeout(showModal,7400);
-      }
-
-      function showPage() {
-        document.getElementById("preloader").style.display = "none";
-        document.getElementById("page").style.display = "block";
-      }
-      function showModal(){
-		$("#ex1").modal({
-            showClose: false
-        })}
-      </script>
+});
+</script>
     
    <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/page-transition.js" %}"></script>
