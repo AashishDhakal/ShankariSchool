@@ -7,7 +7,7 @@ class Notices(models.Model):
     notice_headline = models.CharField(max_length=250)
     slug = models.SlugField(blank=True)
     published_date = models.DateTimeField(auto_now_add=True)
-    notice_image = models.ImageField(upload_to="notices")
+    notice_image = models.ImageField(upload_to="notices",blank=True)
     notice = RichTextUploadingField()
 
     class Meta:
@@ -105,5 +105,4 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.name
-
 

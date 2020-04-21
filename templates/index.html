@@ -27,7 +27,7 @@
         height: 100vh;
         z-index: 1;
         overflow: visible;
-        background: white url("{{ homepageimage.preloader.url }}? + {{ random_num }}" ) no-repeat center center;
+        background: white url("{{ homepageimage.preloader.url }}? + {{ random_number }}" ) no-repeat center center;
         animation: 2s linear alternate infinite;
       }
     </style>
@@ -76,7 +76,7 @@
               <a class="pt-trigger" href="{% url 'gallery' %}" data-animation="61" data-goto="4">Gallery</a>
             </li>
             <li>
-              <a class="pt-trigger" href="#notices" data-animation="58" data-goto="5">Notices</a>
+              <a class="pt-trigger" href="#notices" data-animation="58" data-goto="5">Notice/s</a>
             </li>
             <li>
               <a class="pt-trigger" href="#contact" data-animation="59" data-goto="6">Contact</a>
@@ -395,17 +395,6 @@
                 <!-- End of Portfolio filter -->
 
                 <!-- Portfolio Grid -->
-                <div id="portfolio_grid" class="portfolio-grid portfolio-masonry masonry-grid-3">
-                    {% for image in images %}
-                  <figure class="item" data-groups='["all", "media"]'>
-                      <img src="{{ image.image.url }}" alt="">
-                      <div>
-                        <h5 class="name">{{ image.title }}</h5>
-                       <!-- <small>Media</small>-->
-                        <i class="fa fa-file-text-o"></i>
-                      </div>
-                  </figure>
-                    {% endfor %}
 
                   <!-- <figure class="item" data-groups='["all", "video"]'>
                     <a href="https://player.vimeo.com/video/97102654?autoplay=1" title="Praesent Dolor Ex" class="lightbox mfp-iframe">
@@ -661,12 +650,12 @@
       <!-- /Main Content -->
     </div>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
     $(document).ready(function() {
     $(window).load(function() {
         function Preloader() {
             var preloader = $('#preloader');
-            preloader.delay (7000) .slideUp(500);
+            preloader.delay (6500) .slideUp(500);
         }
         if ( ! sessionStorage.getItem( 'doNotShow' ) ) {
             sessionStorage.setItem( 'doNotShow', true );
@@ -675,7 +664,7 @@
                 $("#ex1").modal({
                 showClose: false
         })
-            },7000);
+            },6800);
         } else {
            $ ('#preloader').hide();
            $('#ex1').hide();
@@ -699,3 +688,4 @@
   </body>
 
 </html>
+

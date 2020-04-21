@@ -18,5 +18,6 @@ admin.site.register(ImportantNotice)
 admin.site.register(Downloads)
 admin.site.register(Gallery)
 admin.site.register(HomePage)
-admin.site.register(Testimonials,TestimonialAdmin)
+
 admin.site.register(TeamMember,TeamMemberAdmin)
+admin.site.register(Testimonials,TestimonialAdmin)
