@@ -27,6 +27,7 @@ urlpatterns = [
     path('about/<slug>/',AboutDetailView.as_view(),name="aboutdetail"),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('school/gallery/',GalleryView,name="gallery"),
+    path('admission/',include('admission.urls'),name='admission'),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 

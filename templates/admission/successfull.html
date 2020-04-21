@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Admission Form | Shankari School</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static "admission/css/opensans-font.css" %} ">
+	<link rel="stylesheet" type="text/css" href="{% static "admission/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css" %}">
+    <link rel="stylesheet" href="{% static "admission/css/style.css" %}"/>
+</head>
+<body>
+	<div class="page-content">
+        <img src="{% static 'images/Shankari Logo.png' %}" width="20%" style="padding-right: 20px;">
+		<div class="form-v1-content">
+            <div class="wizard-form">
+            <div class="row">
+                <h2 align="center">Thank you for applying.We will contact you very soon.</h2>
+            </div>
+            <div class="row">
+                <a href="https://shankari.edu.np/"><h2 align="center">Return to Homepage</h2></a>
+            </div>
+            <div class="row">
+            <img src="{% static 'images/contact.jpg' %}" width="40%" style="padding-left: 30px; padding-bottom: 30px;">
+            </div>
+                <div class="row"></div>
+            </div>
+</div>
+	</div>
+	<script src="{% static "admission/js/jquery-3.3.1.min.js" %}"></script>
+	<script src="{% static "admission/js/jquery.steps.js" %}"></script>
+	<script src="{% static "admission/js/main.js" %}"></script>
+</body>
+</html>
