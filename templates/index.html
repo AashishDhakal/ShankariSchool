@@ -27,7 +27,7 @@
         height: 100vh;
         z-index: 1;
         overflow: visible;
-        background: white url("{% static "images/shankari.gif" %}? + {{ random_num }}" ) no-repeat center center;
+        background: white url("{{ homepageimage.preloader.url }}? + {{ random_num }}" ) no-repeat center center;
         animation: 2s linear alternate infinite;
       }
     </style>
@@ -46,7 +46,7 @@
 
       <header id="site_header" class="header mobile-menu-hide">
         <div class="my-photo" >
-          <img  class="animated slideInUp" src="{% static "images/Shankari Logo.png" %}" alt="image">
+          <img  class="animated slideInUp" src="{{ homepageimage.logo.url }}" alt="image">
         </div>
 
        <!-- <div class="site-title-block">
@@ -73,7 +73,7 @@
               <a class="pt-trigger" href="#downloads" data-animation="60" data-goto="3">Downloads</a>
             </li>
             <li>
-              <a class="pt-trigger" href="#gallery" data-animation="61" data-goto="4">Gallery</a>
+              <a class="pt-trigger" href="{% url 'gallery' %}" data-animation="61" data-goto="4">Gallery</a>
             </li>
             <li>
               <a class="pt-trigger" href="#notices" data-animation="58" data-goto="5">Notices</a>
@@ -125,7 +125,7 @@
           <div class="subpages">
 
             <!-- Home Subpage -->
-            <section class="pt-page pt-page-1 section-with-bg section-paddings-0" style="background-image: url({% static "images/shankarischoolbackground.jpg" %});" data-id="home">
+            <section class="pt-page pt-page-1 section-with-bg section-paddings-0" style="background-image: url({{ homepageimage.background_image.url }});" data-id="home">
               <div class="home-page-block-bg">
               </div>
               <div class="home-page-block">
@@ -162,89 +162,45 @@
                 <h5 class="section-description">Shankari School</h5>
               </div>
 
-              <div class="row">
-                <div class="col-sm-6 col-md-6 subpage-block">
-                  <div class="block-title">
-                    <h3>Message from the Desk of CEO</h3>
-                      {% if message %}
-                        {{ message.message | safe }}
-                      {% endif %}
-                    <p></p>
-                  </div>
-                </div>
-
-                <div class="col-sm-6 col-md-6 subpage-block">
-                  <!-- <div class="block-title">
-                <h3>Services</h3>
-              </div> -->
-
-              <div class="row">
-
+                <div class="blog-masonry">
                   {% for aboutsection in aboutsections %}
-                      <div class=" card col-sm-4 col-md-3 subpage-block" style="margin: 20px;">
-                  <div class="service-block">
-                    <a href="{% url "aboutdetail" aboutsection.slug %}" target="_blank"><img src="{{ aboutsection.thumbnail.url }}" alt="image">
-
-                    <div class="block-title">
-                    <h3>{{ aboutsection.section_title }}</h3>
-                  </div></a>
-                  </div>
-                </div>
-
-                {% endfor %}
-              </div>
-                    <div class="block-title">
-                    <h3>Testimonials</h3>
-                  </div>
-                  <div class="testimonials owl-carousel">
-                    <!-- Testimonial 2 -->
-                      {% for testimonial in testimonials %}
-                    <div class="testimonial-item">
-                      <!-- Testimonial Content -->
-                      <div class="testimonial-content">
-                        <div class="testimonial-text">
-                          <p>{{ testimonial.testimonial_text }}</p>
-                        </div>
-                      </div>            
-                      <!-- /Testimonial Content -->  
-                      <!-- Testimonial Author -->
-                      <div class="testimonial-credits">
-                        <!-- Picture -->
-                        <div class="testimonial-picture">
-                          <img src="{{ testimonial.testimonial_picture.url }}" alt="">
-                        </div>              
-                        <!-- /Picture -->
-                        <!-- Testimonial author information -->
-                        <div class="testimonial-author-info">
-                          <p class="testimonial-author">{{ testimonial.testimonial_author }}</p>
-                          <p class="testimonial-firm">{{ testimonial.testimonial_designation }}</p>
-                        </div>
-                      </div>
-                      <!-- /Testimonial author information -->               
+                <div class="item">
+                  <div class="blog-card">
+                    <div class="media-block">
+                      <a href="{% url "aboutdetail" aboutsection.slug %}">
+                        <hr style="display: block;margin-top: 0.5em;margin-bottom: 0.5em;margin-left: auto;margin-right: auto;border-style: solid;border-color:green;border-width: 3px;">
+                      </a>
                     </div>
-                    <!-- End of Testimonial 2 -->
-                    {% endfor %}
+                    <div class="post-info">
+
+                      <a href="{% url "aboutdetail" aboutsection.slug %}"><h4 class="blog-item-title">{{ aboutsection.section_title }}</h4></a>
+                    </div>
                   </div>
                 </div>
+                  {% endfor %}
               </div>
+
 
               <!-- Services block -->
-              <!-- <div class="block-title">
-                <h3>Services</h3>
+               <div class="block-title">
+                <h3>Board of Governors</h3>
               </div>
-
-              <div class="row">
-                <div class="col-sm-6 col-md-3 subpage-block">
+            <div class="row">
+                {% for teammember in teammembers %}
+                <div class="col-sm-6 col-md-2 subpage-block" style="height: 200px !important;">
                   <div class="service-block"> 
                     <div class="service-info">
-                      <img src="images/service/web_design.png" alt="Responsive Design">
-                      <h4>Web Design</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        {% if teammember.photo %}
+                      <img src="{{ teammember.photo.url }}" alt="Responsive Design">
+                        {% endif %}
+                      <h4>{{ teammember.name }}</h4>
+                      <p>{{ teammember.designation }}</p>
                     </div>
                   </div>
                 </div>
-
-                <div class="col-sm-6 col-md-3 subpage-block">
+                  {% endfor %}
+            </div>
+               <!-- <div class="col-sm-6 col-md-3 subpage-block">
                   <div class="service-block"> 
                     <div class="service-info">
                       <img src="images/service/copywrite.png" alt="Copywriter">
@@ -359,6 +315,40 @@
                 </div>
               </div> -->
               <!-- End of Fun fucts block -->
+            <div class="block-title">
+                    <h3>Testimonials</h3>
+                  </div>
+                  <div class="testimonials owl-carousel">
+                    <!-- Testimonial 2 -->
+                      {% for testimonial in testimonials %}
+                    <div class="testimonial-item">
+                      <!-- Testimonial Content -->
+                      <div class="testimonial-content">
+                        <div class="testimonial-text">
+                          <p>{{ testimonial.testimonial_text }}</p>
+                        </div>
+                      </div>
+                      <!-- /Testimonial Content -->
+                      <!-- Testimonial Author -->
+                      <div class="testimonial-credits">
+                        <!-- Picture -->
+                        <div class="testimonial-picture">
+                            {% if testimonial.testimonial_picture %}
+                          <img src="{{ testimonial.testimonial_picture.url }}" alt="">
+                            {% endif %}
+                        </div>
+                        <!-- /Picture -->
+                        <!-- Testimonial author information -->
+                        <div class="testimonial-author-info">
+                          <p class="testimonial-author">{{ testimonial.testimonial_author }}</p>
+                          <p class="testimonial-firm">{{ testimonial.testimonial_designation }}</p>
+                        </div>
+                      </div>
+                      <!-- /Testimonial author information -->
+                    </div>
+                    <!-- End of Testimonial 2 -->
+                    {% endfor %}
+                  </div>
             </section>
             <!-- End of About Me Subpage -->
 
@@ -556,9 +546,9 @@
                   <div class="blog-card">
                     <div class="media-block">
                       <a href="{% url "noticedetail" notice.slug %}">
-                        <img class="post-image img-responsive" src="{{ notice.notice_image.url }}" alt="blog-post-1" />
+                        <hr style="display: block;margin-top: 0.5em;margin-bottom: 0.5em;margin-left: auto;margin-right: auto;border-style: solid;border-color:green;border-width: 3px;">
                         <div class="mask"></div>
-                        <div class="post-date"><span class="day">{{ notice.published_date.day }}</span><span class="month">{{ notice.published_date.month }}</span><span class="year">{{ notice.published_date.year }}</span></div>
+                        <div class="post-date"><span class="day">{{ notice.published_date.date }}</span></div>
                       </a>
                     </div>
                     <div class="post-info">
@@ -595,7 +585,7 @@
                       <i class="pe-7s-icon pe-7s-map-marker"></i>
                     </div>
                     <div class="ci-text">
-                      <h5>साई सदन, म्युजियम मार्ग, 44600</h5>
+                      <h5>Chhauni,Kathmandu</h5>
                     </div>
                   </div>
                   <div class="contact-info-block">
@@ -671,23 +661,29 @@
       <!-- /Main Content -->
     </div>
 
-    <script>
-      var myVar;
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $(window).load(function() {
+        function Preloader() {
+            var preloader = $('#preloader');
+            preloader.delay (7000) .slideUp(500);
+        }
+        if ( ! sessionStorage.getItem( 'doNotShow' ) ) {
+            sessionStorage.setItem( 'doNotShow', true );
+            Preloader();
+            setTimeout(function () {
+                $("#ex1").modal({
+                showClose: false
+        })
+            },7000);
+        } else {
+           $ ('#preloader').hide();
+           $('#ex1').hide();
+        }
+    });
 
-      function  myFunction() {
-        myVar = setTimeout(showPage, 7400);
-        myVar = setTimeout(showModal,7400);
-      }
-
-      function showPage() {
-        document.getElementById("preloader").style.display = "none";
-        document.getElementById("page").style.display = "block";
-      }
-      function showModal(){
-		$("#ex1").modal({
-            showClose: false
-        })}
-      </script>
+});
+</script>
     
    <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/page-transition.js" %}"></script>
