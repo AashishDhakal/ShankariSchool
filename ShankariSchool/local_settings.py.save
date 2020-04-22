@@ -7,7 +7,7 @@ SECRET_KEY = 'w-w83b-n*&ipql72qrxpd*gbsu1uo(bulc0d3o7tb8$g55-b@-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','shankari.edu.np','www.shankari.edu.np']
+ALLOWED_HOSTS = ['127.0.0.1'shankari,'']
 
 DATABASES = {
     'default': {
