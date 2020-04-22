@@ -1,338 +1,500 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<title>Admission Form | Shankari School</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" type="text/css" href="{% static "admission/css/opensans-font.css" %} ">
-	<link rel="stylesheet" type="text/css" href="{% static "admission/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css" %}">
-    <link rel="stylesheet" href="{% static "admission/css/style.css" %}"/>
+    <meta charset="utf-8" />
+    <title>Admission Form | Shankari School</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'admission/css/animation.min.css'%} " />
+    <link rel="stylesheet" type="text/css" href="{% static 'admission/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css '%}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'admission/css/opensans-font.css' %} " />
+    <link rel="stylesheet" href="{% static 'admission/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'admission/css/vendor/bootstrap.min.css'%} " />
+    <link rel="stylesheet" href="{% static 'admission/css/vendor/slider.min.css'%} " />
+    <link rel="stylesheet" href="{% static 'admission/css/main.css'%} " />
+    <link rel="stylesheet" href="{% static 'admission/css/vendor/icons.min.css'%} " />
+    <link rel="stylesheet" href="{% static 'admission/css/vendor/gallery.min.css'%} " />
+    <link rel="stylesheet" href="{% static 'admission/css/vendor/animation.min.css'%} " />
+
+    <!-- ==============================================
+        Custom Stylesheet
+        =============================================== -->
+    <link rel="stylesheet" href="{% static 'admission/css/default.css'%} " />
+    <link rel="stylesheet" href="{% static 'admission/css/theme-classic.css'%} " />
 </head>
+
 <body>
-	<div class="page-content">
-        <img src="{% static 'images/Shankari Logo.png' %}" width="20%" style="padding-right: 20px;">
-		<div class="form-v1-content">
-			<div class="wizard-form">
-		        <form class="form-register" action="{% url 'admissionform' %}" method="post">
-                    {% csrf_token %}
-		        	<div id="form-total">
-		        		<!-- SECTION 1 -->
-			            <h2>
-			            	<p class="step-icon"><span>01</span></p>
-			            	<span class="step-text">Peronal Infomation</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading">Peronal Infomation</h3>
-									<p>Please enter your infomation and proceed to the next step.</p>
-								</div>
-								<div class="form-row">
-									<div class="form-holder">
-										<fieldset>
-											<legend>First Name</legend>
-											<input type="text" class="form-control" id="first-name" name="first_name" placeholder="First Name" required>
-										</fieldset>
-									</div>
-                                    <div class="form-holder">
-										<fieldset>
-											<legend>Middle Name</legend>
-											<input type="text" class="form-control" id="last-name" name="middle_name" placeholder="Middle Name">
-										</fieldset>
-									</div>
-									<div class="form-holder">
-										<fieldset>
-											<legend>Last Name</legend>
-											<input type="text" class="form-control" id="last-name" name="last_name" placeholder="Last Name" required>
-										</fieldset>
-									</div>
-								</div>
-                                <label class="special-label">Date of Birth:</label>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>English</legend>
-											<input type="text" name="english_dob" id="your_email" class="form-control" placeholder="2000-12-30"  required>
-										</fieldset>
-									</div>
-                                    <div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Nepali</legend>
-											<input type="text" name="nepali_dob" id="your_email" class="form-control"  placeholder="2066-11-29" required>
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Address</legend>
-											<input type="text" class="form-control" id="phone" name="address" placeholder="Address" required>
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<select name="gender">
-											<option value="Gender" disabled selected>Gender</option>
-											<option value="Male">Male</option>
-											<option value="Female">Female</option>
-										</select>
-                                    </div>
-                                    <div class="form-holder form-holder-2">
-										<select name="admission_for_grade">
-											<option value="YYYY" disabled selected>Admission for Grade</option>
-											<option value="Nursery">Nursery</option>
-											<option value="LKG">LKG</option>
-											<option value="UKG">UKG</option>
-											<option value="1(One)">1(One)</option>
-											<option value="2(Two)">2(Two)</option>
-                                            <option value="3(Three)">3(Three)</option>
-											<option value="4(Four)">4(Four)</option>
-											<option value="5(Five)">5(Five)</option>
-											<option value="6(Six)">6(Six)</option>
-											<option value="7(Seven)">7(Seven)</option>
-											<option value="8(Eight)">8(Eight)</option>
-											<option value="9(Nine)">9(Nine)</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Last School Attended</legend>
-											<input type="text" class="form-control" id="phone" name="last_school" placeholder="Your Last School">
-										</fieldset>
-									</div>
-								</div>
-							</div>
-			            </section>
-						<!-- SECTION 2 -->
-			            <h2>
-			            	<p class="step-icon"><span>02</span></p>
-			            	<span class="step-text">Father's Information</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading">Father's Information</h3>
-									<p>Please enter your father's infomation and proceed to the next step.</p>
-								</div>
-								<div class="form-row">
-									<div class="form-holder">
-										<fieldset>
-											<legend>Name</legend>
-											<input type="text" class="form-control" id="first-name" name="father_name" placeholder="Name" required>
-										</fieldset>
-									</div>
-                                    <div class="form-holder">
-										<fieldset>
-											<legend>Mobile Number</legend>
-											<input type="text" class="form-control" id="last-name" name="father_mobile" placeholder="Mobile Number" required>
-										</fieldset>
-									</div>
-								</div>
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Email</legend>
-											<input type="text" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" id="phone" name="father_email" placeholder="user@example.com" required>
-										</fieldset>
-									</div>
-								</div>
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Occupation</legend>
-											<input type="text" class="form-control" id="father_occupation" name="address" placeholder="Occupation" required>
-										</fieldset>
-									</div>
-								</div>
-                                <label class="special-label">Office Details:</label>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Office Name</legend>
-											<input type="text" name="father_office" id="your_email" class="form-control" placeholder="Office Name" >
-										</fieldset>
-									</div>
-                                    <div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Office Phone</legend>
-											<input type="text" name="father_office_phone" id="your_email" class="form-control"  placeholder="Office Phone Number">
-										</fieldset>
-									</div>
-								</div>
-							</div>
-			            </section>
-			            <!-- SECTION 3 -->
-			            <h2>
-			            	<p class="step-icon"><span>03</span></p>
-			            	<span class="step-text">Mother's Information</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading">Mother's Information</h3>
-									<p>Please enter your mother's infomation and proceed to the next step.</p>
-								</div>
-								<div class="form-row">
-									<div class="form-holder">
-										<fieldset>
-											<legend>Name</legend>
-											<input type="text" class="form-control" id="first-name" name="mother_name" placeholder="Name" required>
-										</fieldset>
-									</div>
-                                    <div class="form-holder">
-										<fieldset>
-											<legend>Mobile Number</legend>
-											<input type="text" class="form-control" id="last-name" name="mother_mobile" placeholder="Mobile Number" required>
-										</fieldset>
-									</div>
-								</div>
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Email</legend>
-											<input type="text" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" id="phone" name="mother_email" placeholder="user@example.com">
-										</fieldset>
-									</div>
-								</div>
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Occupation</legend>
-											<input type="text" class="form-control" id="mother_occupation" name="address" placeholder="Occupation" >
-										</fieldset>
-									</div>
-								</div>
-                                <label class="special-label">Office Details:</label>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Office Name</legend>
-											<input type="text" name="mother_office" id="your_email" class="form-control" placeholder="Office Name" >
-										</fieldset>
-									</div>
-                                    <div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Office Phone</legend>
-											<input type="text" name="mother_office_phone" id="your_email" class="form-control"  placeholder="Office Phone Number">
-										</fieldset>
-									</div>
-								</div>
-							</div>
-			            </section>
-                        <h2>
-			            	<p class="step-icon"><span>04</span></p>
-			            	<span class="step-text">Local Guardian</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading">Local Guardian's Information</h3>
-									<p>Please enter your local guardian's infomation and proceed to the next step.</p>
-								</div>
-								<div class="form-row">
-									<div class="form-holder">
-										<fieldset>
-											<legend>Name</legend>
-											<input type="text" class="form-control" id="first-name" name="local_name" placeholder="Name" required>
-										</fieldset>
-									</div>
-                                    <div class="form-holder">
-										<fieldset>
-											<legend>Mobile Number</legend>
-											<input type="text" class="form-control" id="last-name" name="local_mobile" placeholder="Mobile Number" required>
-										</fieldset>
-									</div>
-								</div>
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Email</legend>
-											<input type="text" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" id="phone" name="local_email" placeholder="user@example.com">
-										</fieldset>
-									</div>
-                                    <div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Relation</legend>
-											<input type="text" class="form-control" id="phone" name="local_relation" placeholder="Relation" required>
-										</fieldset>
-									</div>
-								</div>
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Occupation</legend>
-											<input type="text" class="form-control" id="local_occupation" name="address" placeholder="Occupation">
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-                                    <div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Office Phone</legend>
-											<input type="text" name="local_phone" id="your_email" class="form-control"  placeholder="Office Phone Number">
-										</fieldset>
-									</div>
-								</div>
-							</div>
-			            </section>
-                        </section>
-                        <h2>
-			            	<p class="step-icon"><span>05</span></p>
-			            	<span class="step-text">Miscellaneous</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading">Miscellaneous Information</h3>
-									<p>Please enter your miscellaneous infomation and submit the form.</p>
-								</div>
-								<div class="form-row">
-										<div class="form-holder form-holder-2">
-										<select name="bus_required">
-											<option value="Bus Required" disabled selected>Bus Required</option>
-											<option value="Yes">Yes</option>
-											<option value="No">No</option>
-										</select>
-									</div>
-								</div>
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Pick-Up Point</legend>
-											<input type="text" class="form-control" id="phone" name="bus_pickup" placeholder="Pickup Point">
-										</fieldset>
-									</div>
-								</div>
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Any Particular disease(s)/illness(es)tge student is suffering from? If yes, Please give details.</legend>
-											<input type="text" class="form-control" id="disease_details" name="disease_details" placeholder="Disease Details(if any)">
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-                                    <div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Does your child have any allergy? Is he/she under any medication? If yes, please give details.</legend>
-											<input type="text" name="medication_details" id="your_email" class="form-control"  placeholder="Medication Details(If any)">
-										</fieldset>
-									</div>
-								</div>
-							</div>
-                            <button class="btn fourth" type="submit">Apply </button>
-			            </section>
-		        	</div>
-		        </form>
-			</div>
-		</div>
-	</div>
-	<script src="{% static "admission/js/jquery-3.3.1.min.js" %}"></script>
-	<script src="{% static "admission/js/jquery.steps.js" %}"></script>
-	<script src="{% static "admission/js/main.js" %}"></script>
-</body>
+    <section id="contact" class="form">
+        <div class="container">
+            <div style="
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+          ">
+                <img src="{% static 'images/Shankari Logo.png' %}" width="20%" />
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12 align-self-center text-center text-md-left">
+                    <!-- Success Message -->
+                    <div class="row success message">
+                        <div class="col-12 p-0">
+                            <i class="icon bigger icon-check"></i>
+                            <h4>Success</h4>
+                            <p>Your message has been sent successfully.</p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit quisque sed leo vel dolor dictum hendrerit.
+                            </p>
+                            <a href="#" class="btn mx-auto primary-button"><i class="icon-refresh"></i>REFRESH</a
+                >
+              </div>
+            </div>
+
+            <!-- Steps Message -->
+
+            <div class="col-12 p-0">
+              <!-- Text 1 -->
+              <div id="text-1">
+                <h2 class="featured alt">Online Rgistration Application</h2>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <div class="row text-center">
+              <div class="col-12">
+                <form
+                  id="msform"
+                  class="form-register"
+                  action="{% url 'admissionform' %}"
+                  method="post"
+                >
+                  {% csrf_token %}
+
+                  <fieldset id="group-1">
+                    <div class="wizard-header">
+                      <h4 class="heading">Student Infomation</h4>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder">
+                        <fieldset>
+                          <legend>First Name</legend>
+                          <input
+                            type="text"
+                            id="first-name"
+                            name="first_name"
+                            class="form-control"
+                            required
+                          />
+                        </fieldset>
+                      </div>
+                      <div class="form-holder">
+                        <fieldset>
+                          <legend>Middle Name</legend>
+                          <input
+                            type="text"
+                            id="last-name"
+                            name="middle_name"
+                            class="form-control"
+                          />
+                        </fieldset>
+                      </div>
+                      <div class="form-holder">
+                        <fieldset>
+                          <legend>Last Name</legend>
+                          <input
+                            type="text"
+                            id="last-name"
+                            class="form-control"
+                            name="last_name"
+                            required
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <label class="special-label" style="float: left;"
+                        ><legend>Date of Birth:</legend></label
+                      >
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                        <fieldset>
+                          <legend>English</legend>
+                          <input
+                            type="text"
+                            name="english_dob"
+                            class="form-control"
+                            id="your_email"
+                            placeholder="2000-12-30"
+                            required
+                          />
+                        </fieldset>
+                      </div>
+                      <div class="form-holder form-holder-2">
+                        <fieldset>
+                          <legend>Nepali</legend>
+                          <input
+                            type="text"
+                            name="nepali_dob"
+                            id="your_email"
+                            class="form-control"
+                            placeholder="2066-11-29"
+                            required
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                        <fieldset>
+                          <legend>Address</legend>
+                          <input
+                            type="text"
+                            id="phone"
+                            name="address"
+                            class="form-control"
+                            required
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                        <select name="gender">
+                          <option value="Gender" disabled selected
+                            >Gender</option
+                          >
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
+                      </div>
+                      <div class="form-holder form-holder-2">
+                        <select name="admission_for_grade">
+                          <option value="YYYY" disabled selected
+                            >Admission for Grade</option
+                          >
+                          <option value="Nursery">Nursery</option>
+                          <option value="LKG">LKG</option>
+                          <option value="UKG">UKG</option>
+                          <option value="1(One)">1(One)</option>
+                          <option value="2(Two)">2(Two)</option>
+                          <option value="3(Three)">3(Three)</option>
+                          <option value="4(Four)">4(Four)</option>
+                          <option value="5(Five)">5(Five)</option>
+                          <option value="6(Six)">6(Six)</option>
+                          <option value="7(Seven)">7(Seven)</option>
+                          <option value="8(Eight)">8(Eight)</option>
+                          <option value="9(Nine)">9(Nine)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                        <fieldset>
+                          <legend>Last School Attended</legend>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="phone"
+                            name="last_school"
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div
+                        class="col-md-6"
+                        style="border-right: 1px solid #ddd;"
+                      >
+                        <div class="wizard-header">
+                          <h4 class="heading">Father's Infomation</h4>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-holder form-holder-1">
+                            <fieldset>
+                              <legend>Name</legend>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="first-name"
+                                name="father_name"
+                                placeholder="Name"
+                                required
+                              />
+                            </fieldset>
+                          </div>
+                          <div class="form-holder form-holder-1">
+                            <fieldset>
+                              <legend>Mobile Number</legend>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="last-name"
+                                name="father_mobile"
+                                placeholder="Mobile Number"
+                                required
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-holder form-holder-4">
+                            <fieldset>
+                              <legend>Email</legend>
+                              <input
+                                type="text"
+                                class="form-control"
+                                pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                                id="phone"
+                                name="father_email"
+                                required
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-holder form-holder-4">
+                            <fieldset>
+                              <legend>Occupation</legend>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="father_occupation"
+                                name="address"
+                                required
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-holder form-holder-4">
+                            <fieldset>
+                              <legend>Office Name</legend>
+                              <input
+                                type="text"
+                                name="father_office"
+                                id="your_email"
+                                class="form-control"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="wizard-header">
+                          <h4 class="heading">Mother's Infomation</h4>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-holder form-holder-1">
+                            <fieldset>
+                              <legend>Name</legend>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="first-name"
+                                name="mother_name"
+                                required
+                              />
+                            </fieldset>
+                          </div>
+                          <div class="form-holder form-holder-1">
+                            <fieldset>
+                              <legend>Mobile Number</legend>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="last-name"
+                                name="mother_mobile"
+                                required
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-holder form-holder-4">
+                            <fieldset>
+                              <legend>Email</legend>
+                              <input
+                                type="text"
+                                class="form-control"
+                                pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                                id="phone"
+                                name="mother_email"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-holder form-holder-4">
+                            <fieldset>
+                              <legend>Occupation</legend>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="mother_occupation"
+                                name="address"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-holder form-holder-4">
+                            <fieldset>
+                              <legend>Office Name</legend>
+                              <input
+                                type="text"
+                                name="mother_office"
+                                class="form-control"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wizard-header">
+                      <h4 class="heading">Local Guardian's Information</h4>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-1">
+                        <fieldset>
+                          <legend>Name</legend>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="first-name"
+                            name="local_name"
+                          />
+                        </fieldset>
+                      </div>
+                      <div class="form-holder form-holder-1">
+                        <fieldset>
+                          <legend>Mobile Number</legend>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="last-name"
+                            name="local_mobile"
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                        <fieldset>
+                          <legend>Email</legend>
+                          <input
+                            type="text"
+                            class="form-control"
+                            pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                            id="phone"
+                            name="local_email"
+                          />
+                        </fieldset>
+                      </div>
+                      <div class="form-holder form-holder-2">
+                        <fieldset>
+                          <legend>Relation</legend>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="phone"
+                            name="local_relation"
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                        <fieldset>
+                          <legend>Occupation</legend>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="local_occupation"
+                            name="address"
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="wizard-header">
+                      <h4 class="heading">Miscellaneous Information</h4>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                        <select name="bus_required">
+                          <option value="Bus Required" disabled selected
+                            >Bus Required</option
+                          >
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                        <fieldset>
+                          <legend>Pick-Up Point</legend>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="phone"
+                            name="bus_pickup"
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-4">
+                        <fieldset>
+                          <legend>
+                            Any Particular disease(s)/illness(es)tge student is
+                            suffering from? If yes, Please give details.
+                          </legend>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="disease_details"
+                            name="disease_details"
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-holder form-holder-4">
+                        <fieldset>
+                          <legend>
+                            Does your child have any allergy? Is he/she under
+                            any medication? If yes, please give details.
+                          </legend>
+                          <input
+                            type="text"
+                            name="medication_details"
+                            class="form-control"
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <button class="send btn primary-button" type="submit">
+                    Apply
+                  </button>
+                  <!-- </div> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="{% static 'admission/js/vendor/jquery.min.js' %}"></script>
+    <script src="{% static 'admission/js/vendor/ponyfill.min.js' %}"></script>
+    <script src="{% static 'admission/js/vendor/popper.min.js' %}"></script>
+    <script src="{% static 'admission/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'admission/js/vendor/slider.min.js' %}"></script>
+    <script src="{% static 'admission/js/vendor/gallery.min.js' %}"></script>
+    <script src="{% static 'admission/js/vendor/animation.min.js' %}"></script>
+    <script src="{% static 'admission/js/main.js' %}"></script>
+  </body>
 </html>
