@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,ListView,DetailView
+from school.forms import ParentInformationForm
 
-from school.models import Notices,CEOMessage,Testimonials,AboutSection,ImportantNotice,Downloads,Gallery,HomePage,TeamMember
+from school.models import *
 import random
 
 def Homepage(request):
@@ -35,3 +36,11 @@ def page_not_found_view(request):
 
 def handler500(request):
     return render(request, '500.html', status=500)
+
+def ParentInformationView(request):
+    form = ParentInformationForm()
+    if request.POST:
+        form = ParentInformationForm(request.POST)
+        form.save()
+        return render(request,'parentinformation.html',{'form':form})
+    return render(request,'parentinformation.html',{'form':form})

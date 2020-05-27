@@ -106,3 +106,22 @@ class TeamMember(models.Model):
     def __str__(self):
         return self.name
 
+class ParentInformation(models.Model):
+    grade = models.CharField(max_length=10,choices=(
+        ('Nursery','Nursery'),
+        ('KG','KG'),
+        ('One','One'),
+        ('Two','Two'),
+        ('Three','Three'),
+        ('Four','Four'),
+        ('Five','Five'),
+        ('Six','Six'),
+        ('Seven','Seven'),
+        ('Eight','Eight'),
+        ('Nine','Nine'),
+        ('Ten','Ten')
+    ))
+    student_name = models.CharField(max_length=100)
+    parent_name = models.CharField(max_length=100)
+    parent_email = models.EmailField()
+    parent_phone = models.CharField(max_length=14)

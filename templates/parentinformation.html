@@ -1,0 +1,52 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Parent Survey</title>
+</head>
+<body>
+<!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v6.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="1410438192505007"
+  theme_color="#67b868"
+  logged_in_greeting="Welcome,Let us know if you have any questions."
+  logged_out_greeting="Welcome,Let us know if you have any questions.">
+      </div>
+<div class="container">
+    <div style="
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+          ">
+                <img src="{% static 'images/Shankari Logo.png' %}" width="20%" />
+            </div>
+  <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+      <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+    </div>
+</body>
+</html>

@@ -18,7 +18,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import Homepage,NoticeDetailView,AboutDetailView,page_not_found_view,handler500,GalleryView
+from .views import Homepage,NoticeDetailView,AboutDetailView,page_not_found_view,handler500,GalleryView,ParentInformationView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('school/gallery/',GalleryView,name="gallery"),
     path('admission/',include('admission.urls'),name='admission'),
+    path('survey/parent/',ParentInformationView,name='parentinformation'),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 

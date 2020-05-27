@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'school',
     'admission',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,4 @@ MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = "ckupload/"
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
