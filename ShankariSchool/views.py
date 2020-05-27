@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,ListView,DetailView
-from school.forms import ParentInformationForm
+from school.forms import *
+from django.contrib import messages
 
 from school.models import *
 import random
@@ -42,5 +43,6 @@ def ParentInformationView(request):
     if request.POST:
         form = ParentInformationForm(request.POST)
         form.save()
+        messages.success(request, 'Thank you for your submission.We will be contacting you soon.')
         return render(request,'parentinformation.html',{'form':form})
     return render(request,'parentinformation.html',{'form':form})
