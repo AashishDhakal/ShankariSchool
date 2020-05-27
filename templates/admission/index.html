@@ -25,6 +25,32 @@
 </head>
 
 <body>
+<!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v6.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="1410438192505007"
+  theme_color="#67b868"
+  logged_in_greeting="Welcome,Let us know if you have any questions."
+  logged_out_greeting="Welcome,Let us know if you have any questions.">
+      </div>
     <section id="contact" class="form">
         <div class="container">
             <div style="
@@ -117,26 +143,24 @@
                     <div class="form-row">
                       <div class="form-holder form-holder-2">
                         <fieldset>
-                          <legend>English</legend>
+                          <legend>A.D (YYYY-MM-DD)</legend>
                           <input
                             type="text"
                             name="english_dob"
                             class="form-control"
                             id="your_email"
-                            placeholder="2000-12-30"
                             required
                           />
                         </fieldset>
                       </div>
                       <div class="form-holder form-holder-2">
                         <fieldset>
-                          <legend>Nepali</legend>
+                          <legend>B.S (YYYY-MM-DD)</legend>
                           <input
                             type="text"
                             name="nepali_dob"
                             id="your_email"
                             class="form-control"
-                            placeholder="2066-11-29"
                             required
                           />
                         </fieldset>
@@ -157,9 +181,6 @@
                           <option value="YYYY" disabled selected
                             >Admission for Grade</option
                           >
-                          <option value="Nursery">Nursery</option>
-                          <option value="LKG">LKG</option>
-                          <option value="UKG">UKG</option>
                           <option value="1(One)">1(One)</option>
                           <option value="2(Two)">2(Two)</option>
                           <option value="3(Three)">3(Three)</option>
@@ -214,7 +235,6 @@
                                 class="form-control"
                                 id="first-name"
                                 name="father_name"
-                                placeholder="Name"
                                 required
                               />
                             </fieldset>
@@ -227,7 +247,6 @@
                                 class="form-control"
                                 id="last-name"
                                 name="father_mobile"
-                                placeholder="Mobile Number"
                                 required
                               />
                             </fieldset>
@@ -256,7 +275,7 @@
                                 type="text"
                                 class="form-control"
                                 id="father_occupation"
-                                name="address"
+                                name="father_occupation"
                                 required
                               />
                             </fieldset>
@@ -328,7 +347,7 @@
                                 type="text"
                                 class="form-control"
                                 id="mother_occupation"
-                                name="address"
+                                name="mother_occupation"
                               />
                             </fieldset>
                           </div>
@@ -407,7 +426,7 @@
                             type="text"
                             class="form-control"
                             id="local_occupation"
-                            name="address"
+                            name="local_occupation"
                           />
                         </fieldset>
                       </div>
@@ -441,8 +460,7 @@
                       <div class="form-holder form-holder-4">
                         <fieldset>
                           <legend>
-                            Any Particular disease(s)/illness(es)tge student is
-                            suffering from? If yes, Please give details.
+                            Does your child suffer from any chronic diseases/illnesses that may cause allergies or any other long-term side effects? If yes,please provide the details.
                           </legend>
                           <input
                             type="textarea"
@@ -459,7 +477,7 @@
                         <fieldset>
                           <legend>
                             Does your child have any allergy? Is he/she under
-                            any medication? If yes, please give details.
+                            any medication? If yes, please provide the details.
                           </legend>
                           <input
                             type="text"
