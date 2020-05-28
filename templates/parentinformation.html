@@ -40,7 +40,9 @@
             vertical-align: middle;
             display: table-cell;
           ">
+        <a href="{% url 'home' %}">
                 <img src="{% static 'images/Shankari Logo.png' %}" width="20%" />
+            </a>
             </div>
     {% if messages %}
 <ul class="messages">
@@ -54,6 +56,9 @@
         {{ form|crispy }}
       <button type="submit" class="btn btn-success">Submit</button>
   </form>
+    </div>
+    <div class="footer" align="center" style="padding-top: 30px;">
+        <p style="font-size: 10px;">Developed by<a href="dhakalaashish.com.np"> Aashish Dhakal</a> </p>
     </div>
 </body>
 </html>

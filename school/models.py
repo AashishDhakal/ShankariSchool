@@ -108,16 +108,40 @@ class TeamMember(models.Model):
 
 class ParentInformation(models.Model):
     grade = models.CharField(max_length=10,choices=(
-        ('Nursery','Nursery'),
-        ('KG','KG'),
-        ('One','One'),
-        ('Two','Two'),
-        ('Three','Three'),
-        ('Four','Four'),
-        ('Five','Five'),
-        ('Six','Six'),
-        ('Seven','Seven'),
-        ('Eight','Eight'),
+        ('One',(
+            ('Oak','Oak'),
+            ('Pine','Pine')
+        )),
+        ('Two',(
+            ('Pearl','Pearl'),
+            ('Ruby','Ruby'),
+            ('Opal','Opal'),
+        )),
+        ('Three',(
+            ('Lhotse','Lhotse'),
+            ('Manaslu','Manaslu'),
+            ('API','API'),
+        )),
+        ('Four',(
+            ('Rara','Rara'),
+            ('Fewa','Fewa'),
+        )),
+        ('Five',(
+            ('Amazon','Amazon'),
+            ('Nile','Nile')
+        )),
+        ('Six',(
+            ('Mechi','Mechi'),
+            ('Koshi','Koshi'),
+        )),
+        ('Seven',(
+            ('Picasso','Picasso'),
+            ('Oscar','Oscar')
+        )),
+        ('Eight',(
+            ('A','A'),
+            ('B','B')
+        )),
         ('Nine','Nine'),
         ('Ten','Ten')
     ))
