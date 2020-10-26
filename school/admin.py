@@ -32,6 +32,7 @@ class TeamMemberAdmin(admin.ModelAdmin):
 class ParentInformationAdmin(admin.ModelAdmin,ExportCsvMixin):
     list_display = ['grade','student_name','parent_name','parent_email','parent_phone']
     list_filter = ['grade']
+    search_fields = ['student_name',]
     actions = ['export_as_csv']
 
 admin.site.register(Notices,NoticeAdmin)

@@ -41,8 +41,9 @@ def handler500(request):
 def ParentInformationView(request):
     form = ParentInformationForm()
     if request.POST:
-        form = ParentInformationForm(request.POST)
-       	form.save()
+        form = P
+arentInformationForm(request.POST)
+        	form.save()
         messages.success(request, 'Thank you for your submission.We will be contacting you soon.')
         return render(request,'parentinformation.html',{'form':form})
     return render(request,'parentinformation.html',{'form':form})
